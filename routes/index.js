@@ -18,8 +18,8 @@ router.post('/', (req, res) => {
   });
 });
 
-router.get('/state', (req, res) => {
-  Task.update({ done: req.query.done }, { where: { id: req.query.id } }).then(() => {
+router.post('/state', (req, res) => {
+  Task.update({ done: req.body.done ? true : false }, { where: { id: req.body.id } }).then(() => {
     res.redirect('/');
   });
 });

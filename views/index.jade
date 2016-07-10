@@ -5,14 +5,10 @@ block content
     input(type='text',name='title')
     textarea(name='description')
     input(type='submit')
-  form(method='post',action='/state')
-    ul
-      each item in tasks
-        li
+  ul
+    each item in tasks
+      li
+        form(method='post',action='/state')
+          input(type='hidden',name='id',value=(item.id))
           label= item.title
-            input(type='checkbox',onchange="changeState(#{item.id}, this.checked)", checked=(item.done))
-
-  script.
-    function changeState(id, itsDone) {
-        location.href = '/state?id=' + id + '&done=' + itsDone;
-    }
+            input(type='checkbox',name='done',onchange='this.form.submit()',checked=(item.done ? true : false))
