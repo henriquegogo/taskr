@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  form(method='post')
+    input(type='text',name='title')
+    textarea(name='description')
+    input(type='submit')
+  form(method='post',action='/state')
+    ul
+      each item in tasks
+        li
+          label= item.title
+            input(type='checkbox',onchange="changeState(#{item.id}, this.checked)", checked=(item.done))
+
+  script.
+    function changeState(id, itsDone) {
+        location.href = '/state?id=' + id + '&done=' + itsDone;
+    }
