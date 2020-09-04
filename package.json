@@ -12,7 +12,7 @@
     "express": "~4.13.4",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
-    "sequelize": "^3.23.4",
+    "sequelize": "^6.3.5",
     "serve-favicon": "~2.3.0",
     "sqlite3": "^3.1.4"
   }
